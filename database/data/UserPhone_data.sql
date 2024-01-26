@@ -7,5 +7,5 @@ INSERT INTO UserPhone (user_phone_id, phone_type_id, phone_number, created_date)
         2,
         1,
         '3851231234',
-        now(),
+        now()
     );
