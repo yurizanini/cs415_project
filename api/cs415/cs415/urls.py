@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from cs415 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/', views.UserAPIView.as_view()),
+    path('order/', views.OrderAPIView.as_view()),
+    path('orderservices/', views.OrderServicesAPIView.as_view()),
+    path('phonetype/', views.PhonetypeAPIView.as_view()),
+    path('services/', views.ServicesAPIView.as_view()),
+    path('useraddress/', views.UseraddressAPIView.as_view()),
+    path('userphone/', views.UserphoneAPIView.as_view()),
 ]

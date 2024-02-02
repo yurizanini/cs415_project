@@ -78,7 +78,9 @@ class Useraddress(models.Model):
     class Meta:
         managed = False
         db_table = 'UserAddress'
-
+    
+    def __str__(self) -> str:
+        return f'{self.user} {self.user_address_id} {self.address_1} {self.address_2} {self.city} {self.st} {self.zip} {self.country}'
 
 class Userphone(models.Model):
     user_phone_id = models.IntegerField(primary_key=True)
@@ -90,3 +92,6 @@ class Userphone(models.Model):
     class Meta:
         managed = False
         db_table = 'UserPhone'
+    
+    def __str__(self) -> str:
+        return f'{self.user} {self.user_phone_id} {self.phone_type} {self.phone_number} {self.created_date}'
