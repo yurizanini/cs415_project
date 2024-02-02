@@ -16,6 +16,12 @@ class UserAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+class GetSingleUserAPIView(APIView):
+    def get(self,request,id):
+        users = User.objects.get(pk=id)
+        serializer = UserSerializer(users)
+        return Response({'users': serializer.data})
+    
 class OrderAPIView(APIView):
     def get(self,request):
         orders = Order.objects.all()
@@ -28,6 +34,12 @@ class OrderAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class GetSingleOrderAPIView(APIView):
+    def get(self,request,id):
+        orders = Order.objects.get(pk=id)
+        serializer = OrderSerializer(orders)
+        return Response({'orders': serializer.data})
+    
 class OrderServicesAPIView(APIView):
     def get(self,request):
         orderservices = Orderservices.objects.all()
