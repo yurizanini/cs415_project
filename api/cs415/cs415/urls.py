@@ -30,4 +30,5 @@ urlpatterns = [
     path('services/', views.ServicesAPIView.as_view()),
     path('useraddress/', views.UseraddressAPIView.as_view()),
     path('userphone/', views.UserphoneAPIView.as_view()),
+    path('pages/page/<int:id>', views.GetSinglePageDataAPIView.as_view()),
 ]

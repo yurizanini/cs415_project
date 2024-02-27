@@ -8,6 +8,15 @@
 from django.db import models
 
 
+class Addresstype(models.Model):
+    address_type_id = models.AutoField(primary_key=True)
+    address_type = models.CharField(max_length=10)
+
+    class Meta:
+        managed = False
+        db_table = 'AddressType'
+
+
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
     user = models.ForeignKey('User', models.DO_NOTHING)
@@ -32,6 +41,7 @@ class Orderservices(models.Model):
 
 class Phonetype(models.Model):
     phone_type_id = models.IntegerField(primary_key=True)
+    phone_type = models.CharField(max_length=10)
 
     class Meta:
         managed = False
@@ -71,6 +81,7 @@ class Useraddress(models.Model):
     st = models.CharField(max_length=2, blank=True, null=True)
     zip = models.CharField(max_length=10, blank=True, null=True)
     country = models.CharField(max_length=30, blank=True, null=True)
+    address_type = models.ForeignKey(Addresstype, models.DO_NOTHING)
 
     class Meta:
         managed = False

@@ -115,6 +115,7 @@ class Useraddress(models.Model):
     st = models.CharField(max_length=2, blank=True, null=True)
     zip = models.CharField(max_length=10, blank=True, null=True)
     country = models.CharField(max_length=30, blank=True, null=True)
+    address_type = models.ForeignKey(Addresstype, models.DO_NOTHING)
 
     class Meta:
         managed = False
